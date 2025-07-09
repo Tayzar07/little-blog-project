@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('blogs.index');
-});
+Route::get('/', [BlogController::class,'index']);
+Route::get('/blogs/{blog:slug}', [BlogController::class,'show']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

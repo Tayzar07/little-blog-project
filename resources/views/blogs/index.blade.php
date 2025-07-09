@@ -1,3 +1,5 @@
+@props(['blogs'])
+
 <x-layout>
     @session('success')
         <div id="myAlert" class="bg-blue-400/30 backdrop-blur-sm mx-2  text-white text-center px-4 py-3 rounded relative"
@@ -15,12 +17,8 @@
     @endsession
 
     <x-hero />
-    <section class="lg:mx-20 md:mx-20 my-12">
-        <div class="grid lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-3">
-            @foreach (range(1, 3) as $item)
-                <x-blog-card />
-            @endforeach
 
-        </div>
-    </section>
+    {{-- Blogs section --}}
+    <x-blogs-section :blogs="$blogs" />
+
 </x-layout>

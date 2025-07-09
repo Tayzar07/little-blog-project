@@ -1,5 +1,6 @@
-<section class="border lg:w-[900px] w-4/5 text-center mx-auto p-10 rounded-lg bg-white/10 my-12">
-    <h1 class="lg:text-5xl md:text-4xl text-3xl text-white mb-4">"Explore the Future of Tech with TechNest"</h1>
+<section class="border lg:w-[900px] w-4/5 text-center mx-auto py-7 px-10 rounded-lg bg-white/10 my-12">
+    <h1 class="lg:text-5xl md:text-4xl text-3xl text-white p-3 mb-3 border rounded-lg bg-white/20 lg:w-[250px] w-[200px] mx-auto">TechNest</h1>
+    <h3 class="text-white lg:text-3xl md:text-2xl sm:text-xl text-lg mb-5">"Explore the Future of Tech with TechNest"</h3>
     <p class="text-white lg:text-2xl md:text-xl sm:text-lg text-md">TechNest is a modern tech blog dedicated to
         developers, tech enthusiasts, and
         curious minds who want to stay ahead in the fast-moving world of technology. From coding tutorials and
