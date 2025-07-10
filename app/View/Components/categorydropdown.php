@@ -22,6 +22,9 @@ class categorydropdown extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.categorydropdown',['categories'=>Category::all()]);
+        return view('components.categorydropdown',[
+            'categories'=>Category::all(),
+            'currentCategory' => Category::firstWhere('slug',request('category'))
+        ]);
     }
 }

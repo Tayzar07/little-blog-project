@@ -3,9 +3,11 @@
         <div class="flex justify-between items-center ">
             <h1 class="sm:text-3xl text-xl rounded-md p-2 bg-white/20 px-5 text-white border hover:bg-blue-700"><a href="/">TechNest</a></h1>
             <div class="flex items-center">
-                <div class="hidden sm:block">
-                    <img  class="rounded-full lg:w-[50px] w-[40px] bg-white/20 me-3 border p-1" src="https://avatar.iran.liara.run/public" alt="">
+                @auth
+                    <div class="hidden sm:block">
+                    <img  class="rounded-full lg:w-[50px] w-[40px] bg-white/20 me-3 border p-1" src="https://i.pinimg.com/474x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg" alt="">
                 </div>
+                @endauth
                 <ul class="md:flex mx-3 items-center hidden space-x-3">
                     <li><a class="text-white border border-transparent hover:border-white p-4 rounded-md text-lg"
                             href="/">Home</a></li>

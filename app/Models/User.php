@@ -48,4 +48,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function subscribeBlogs(){
+        return $this->belongsToMany(Blog::class);
+    }
+
+    public function isSubscribe($blog){
+        return auth()->user()->subscribeBlogs && auth()->user()->subscribeBlogs->contains('id',$blog->id);
+    }
 }

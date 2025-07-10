@@ -18,11 +18,11 @@
         <div class="px-6 pb-3">
             <p class="text-white ">Written By - <span><a
                         class="underline underline-offset-2 text-blue-800 hover:text-white"
-                        href="">{{ $blog->author->name }}</a></span></p>
+                        href="/?username={{$blog->author->username}}">{{ $blog->author->name }}</a></span></p>
         </div>
         <div class="text-center px-6">
             <a href="/blogs/{{ $blog->slug }}"><button
-                    class="border w-full px-2 py-1 text-white rounded-full hover:bg-blue-700">Read More</button></a>
+                    class="border w-full px-2 py-1 text-white rounded-full bg-white/30 hover:bg-blue-700">Read More</button></a>
 
         </div>
     </div>
