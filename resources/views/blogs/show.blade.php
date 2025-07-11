@@ -64,10 +64,14 @@
 
     @auth
         <div class="mt-10 w-[70%] mx-auto border p-5 rounded-lg bg-white/10">
-            <form class="flex flex-col" action="">
-                <textarea class=" bg-transparent border border-white text-white rounded-lg" name="" id="" cols="30"
-                    rows="5"></textarea>
-                <input type="submit" class="border w-[100px] self-end mt-3 text-white bg-blue-700 px-4 py-2 rounded-lg"
+            <form method="POST" class="flex flex-col" action="/blogs/{{$blog->slug}}/comment">
+                @csrf
+                <textarea name="body" placeholder="how do you think about this blog..." class="placeholder-gray-300 bg-transparent border border-white text-white rounded-lg" name="" id="" cols="30"
+                    rows="5">{{request('body')}}</textarea>
+                    @error('body')
+                        <p class="text-red-400 mt-1">{{$message}}</p>
+                    @enderror
+                <input type="submit" class="cursor-pointer border w-[100px] self-end mt-3 text-white bg-blue-700 px-4 py-2 rounded-lg"
                     value="Submit">
             </form>
         </div>
@@ -75,20 +79,7 @@
 
     {{-- show comments --}}
 
-    <div class="mt-3 p-3">
-        <h1 class="w-[71%] mx-auto text-lg text-gray-300 mb-5">comments - ( 1 )</h1>
-        <div class="w-[71%] mx-auto rounded-md bg-white/10 shadow-lg border p-5">
-            <div class="flex items-center space-x-3">
-                <img class="rounded-full w-[50px] bg-white/20 border p-1"
-                    src="https://i.pinimg.com/474x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg" alt="">
-                <div>
-                    <h1 class="text-white ">tayzar</h1>
-                    <p class="text-gray-300 text-sm">3 min ago ..</p>
-                </div>
-            </div>
-            <div class="mt-3 text-white">Hello everyone!!!</div>
-        </div>
-    </div>
+    <x-comments :comments="$blog->comments()->latest()->paginate(3)"/>
 
     <div class="lg:mx-20 md:mx-20 mx-5 mb-12 mt-8">
         <h1 class="text-white text-2xl md:text-4xl pt-5 pb-8 text-center">Blogs you may like</h1>

@@ -30,7 +30,11 @@ class AuthenticatedSessionController extends Controller
 
         $user = $request->user();
 
-        return redirect('/')->with('success','Welcome back , '. $user->name .' ! ');
+        if($user->isAdmin){
+            return redirect('/admin/dashboard')->with('success','Welcome back ! Admin , '. $user->name .' ! ');
+        }else{
+            return redirect('/')->with('success','Welcome back , '. $user->name .' ! ');
+        }
     }
 
     /**

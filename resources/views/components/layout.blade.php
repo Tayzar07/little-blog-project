@@ -15,11 +15,11 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gradient-to-r from-gray-600 to-gray-400">
+<body class="bg-gradient-to-r from-blue-600 to-red-400">
 
     <x-nav />
     {{ $slot }}
-    <x-footer/>
+    <x-footer />
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -65,6 +65,12 @@
             $('#myAlert').fadeOut();
         });
     });
+</script>
+
+<!-- CKEditor 4 Full -->
+<script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('editor');
 </script>
 
 </html>

@@ -13,8 +13,8 @@
             @if (request('category'))
                 <input type="hidden" value="{{request('category')}}" name="category">
             @endif
-            <input value="{{request('search')}}" name="search" class="text-white border-white bg-white/30 w-full rounded-xl" type="text" name="" id="">
-            <input class="border absolute md:right-[84px] right-[23px] top-[4px] px-5 py-1 text-white rounded-lg hover:bg-blue-600" type="submit" value="Search..">
+            <input value="{{request('search')}}" name="search" class="text-white border-white bg-transparent w-full rounded-xl" type="text" name="" id="">
+            <input class="border absolute md:right-[84px] bg-blue-700 right-[23px] top-[4px] px-5 py-1 text-white rounded-lg hover:bg-blue-800" type="submit" value="Search..">
         </form>
 
     <div class="lg:mx-20 md:mx-20 mx-5 mb-12 mt-8">

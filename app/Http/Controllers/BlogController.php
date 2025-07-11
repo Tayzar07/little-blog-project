@@ -27,4 +27,17 @@ class BlogController extends Controller
 
     }
 
+    public function storeComment(Blog $blog){
+
+        $formdata = request()->validate([
+            'body'=>['required','string','min:10']
+        ]);
+
+        $formdata['user_id'] = auth()->id();
+
+        $blog->comments()->create($formdata);
+
+        return redirect("blogs/{$blog->slug}");
+    }
+
 }

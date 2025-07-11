@@ -1,6 +1,6 @@
 <x-layout>
     <section>
-        <div class="border rounded-lg p-5 pe-7 md:w-[450px] w-[400px] mx-auto bg-white/10 backdrop-blur-sm my-[110px]">
+        <div class="border rounded-lg p-5 pe-7 md:w-[450px] w-[350px] mx-auto bg-white/10 backdrop-blur-sm my-[110px]">
             <h1 class="text-white text-center mb-5 md:text-3xl text-2xl">Login</h1>
             <form action="{{ route('login') }}" class="flex flex-col gap-3" method="post">
                 @csrf
@@ -9,7 +9,7 @@
                     <input name="email" class="border rounded-lg m-1 px-3 py-2 w-full placeholder-gray-300"
                         placeholder="email@example.com" type="text">
                     @error('email')
-                        <p class="text-white ms-2 text-xs mt-1">{{ $message }}</p>
+                        <p class="text-red-400 ms-2 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -25,7 +25,7 @@
                         </button>
                     </div>
                     @error('password')
-                        <p class="text-white ms-2 text-xs mt-1">{{ $message }}</p>
+                        <p class="text-red-400 ms-2 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
