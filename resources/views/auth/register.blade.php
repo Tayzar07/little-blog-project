@@ -6,7 +6,7 @@
                 @csrf
                 <div>
                     <label class="text-white ms-1" for="">Name</label>
-                    <input name="name" class="border rounded-lg m-1 px-3 py-2 w-full placeholder-gray-300"
+                    <input name="name" class="border bg-transparent border-white text-white rounded-lg m-1 px-3 py-2 w-full placeholder-gray-300"
                         placeholder="full name..." type="text">
                     @error('name')
                         <p class="text-red-400 ms-2 text-xs mt-1">{{ $message }}</p>
@@ -14,7 +14,7 @@
                 </div>
                 <div>
                     <label class="text-white ms-1" for="">User Name</label>
-                    <input name="username" class="border rounded-lg m-1 px-3 py-2 w-full  placeholder-gray-300" placeholder="name123..."
+                    <input name="username" class="border bg-transparent border-white text-white rounded-lg m-1 px-3 py-2 w-full  placeholder-gray-300" placeholder="name123..."
                         type="text">
                     @error('username')
                         <p class="text-red-400 ms-2 text-xs mt-1">{{ $message }}</p>
@@ -22,7 +22,7 @@
                 </div>
                 <div>
                     <label class="text-white ms-1" for="">Email</label>
-                    <input name="email" class="border rounded-lg m-1 px-3 py-2 w-full placeholder-gray-300"
+                    <input name="email" class="border bg-transparent border-white text-white rounded-lg m-1 px-3 py-2 w-full placeholder-gray-300"
                         placeholder="email@example.com" type="text">
                     @error('email')
                         <p class="text-red-400 ms-2 text-xs mt-1">{{ $message }}</p>
@@ -33,10 +33,10 @@
                     <label class="text-white ms-1" for="">Password</label>
                     <div class="relative">
                         <input name="password" id="password"
-                            class="border w-full rounded-lg m-1 px-3 py-2  placeholder-gray-300"
+                            class="border bg-transparent border-white text-white w-full rounded-lg m-1 px-3 py-2  placeholder-gray-300"
                             placeholder="password..." type="password">
                         <button type="button" id="togglePassword"
-                            class="absolute inset-y-0 right-0 px-4 text-sm text-gray-400 hover:text-blue-600 focus:outline-none">
+                            class="absolute inset-y-0 right-0 px-4 text-sm text-white hover:text-blue-600 focus:outline-none">
                             Show
                         </button>
                     </div>
@@ -48,10 +48,10 @@
                     <label class="text-white ms-1" for="">Confirm Password</label>
                     <div class="relative">
                         <input name="password_confirmation" id="confirmPassword"
-                            class="border w-full rounded-lg m-1 px-3 py-2 placeholder-gray-300"
+                            class="border bg-transparent border-white text-white w-full rounded-lg m-1 px-3 py-2 placeholder-gray-300"
                             placeholder="confirm password..." type="password">
                         <button type="button" id="toggleConfirmPassword"
-                            class="absolute inset-y-0 right-0 px-4 text-sm text-gray-400 hover:text-blue-600 focus:outline-none">
+                            class="absolute inset-y-0 right-0 px-4 text-sm text-white hover:text-blue-600 focus:outline-none">
                             Show
                         </button>
                     </div>
@@ -60,7 +60,7 @@
                     @enderror
                 </div>
 
-                <input class="border mt-3 w-full rounded-lg m-1 px-3 py-2 text-white hover:bg-blue-600 cursor-pointer"
+                <input class="border mt-3 w-full bg-blue-700 rounded-lg m-1 px-3 py-2 text-white hover:bg-blue-800 cursor-pointer"
                     type="submit" value="Register">
             </form>
             <div class="mt-3">

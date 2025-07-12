@@ -11,13 +11,13 @@
     <div>
         <div class="w-[70%] mx-auto rounded-md overflow-hidden mt-10 bg-white/10 shadow-lg border p-3">
             <img class="w-[50%] mx-auto rounded-md"
-                src="https://t4.ftcdn.net/jpg/03/16/45/77/360_F_316457746_jcEMNJy3LRoH8XwmQ4bozIOlCdji9uSi.jpg"
+                src="{{$blog->thumbnail ? "/storage/$blog->thumbnail" : '/storage/default-photos/default-thumbnail.png'}}"
                 alt="Sunset in the mountains">
             <div class="px-6 py-4">
                 <div class="font-bold text-white text-3xl mb-2 text-center mb-5">{{ $blog->title }}</div>
-                <p class="text-gray-200 text-base">
-                    {{ $blog->body }}
-                </p>
+                <div class="text-white">
+                    {!! $blog->body !!}
+                </div>
             </div>
             <div class="flex bg-white/20 items-baseline justify-between border rounded-md mt-5">
                 <div class="px-6 pt-3 pb-2 text-center">
@@ -64,14 +64,16 @@
 
     @auth
         <div class="mt-10 w-[70%] mx-auto border p-5 rounded-lg bg-white/10">
-            <form method="POST" class="flex flex-col" action="/blogs/{{$blog->slug}}/comment">
+            <form method="POST" class="flex flex-col" action="/blogs/{{ $blog->slug }}/comment">
                 @csrf
-                <textarea name="body" placeholder="how do you think about this blog..." class="placeholder-gray-300 bg-transparent border border-white text-white rounded-lg" name="" id="" cols="30"
-                    rows="5">{{request('body')}}</textarea>
-                    @error('body')
-                        <p class="text-red-400 mt-1">{{$message}}</p>
-                    @enderror
-                <input type="submit" class="cursor-pointer border w-[100px] self-end mt-3 text-white bg-blue-700 px-4 py-2 rounded-lg"
+                <textarea name="body" placeholder="how do you think about this blog..."
+                    class="placeholder-gray-300 bg-transparent border border-white text-white rounded-lg" name="" id=""
+                    cols="30" rows="5">{{ request('body') }}</textarea>
+                @error('body')
+                    <p class="text-red-400 mt-1">{{ $message }}</p>
+                @enderror
+                <input type="submit"
+                    class="cursor-pointer border w-[100px] self-end mt-3 text-white bg-blue-700 px-4 py-2 rounded-lg"
                     value="Submit">
             </form>
         </div>
@@ -79,7 +81,7 @@
 
     {{-- show comments --}}
 
-    <x-comments :comments="$blog->comments()->latest()->paginate(3)"/>
+    <x-comments :comments="$blog->comments()->latest()->paginate(3)" />
 
     <div class="lg:mx-20 md:mx-20 mx-5 mb-12 mt-8">
         <h1 class="text-white text-2xl md:text-4xl pt-5 pb-8 text-center">Blogs you may like</h1>

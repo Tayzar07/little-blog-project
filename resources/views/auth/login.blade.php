@@ -6,7 +6,7 @@
                 @csrf
                 <div>
                     <label class="text-white ms-1" for="">Email</label>
-                    <input name="email" class="border rounded-lg m-1 px-3 py-2 w-full placeholder-gray-300"
+                    <input name="email" class="border rounded-lg m-1 px-3 bg-transparent text-white border-white py-2 w-full placeholder-gray-300"
                         placeholder="email@example.com" type="text">
                     @error('email')
                         <p class="text-red-400 ms-2 text-xs mt-1">{{ $message }}</p>
@@ -17,7 +17,7 @@
                     <label class="text-white ms-1" for="">Password</label>
                     <div class="relative">
                         <input id="password" name="password"
-                            class="border w-full rounded-lg m-1 px-3 py-2  placeholder-gray-300"
+                            class="border w-full rounded-lg m-1 px-3 py-2 bg-transparent text-white border-white placeholder-gray-300"
                             placeholder="password..." type="password">
                         <button type="button" id="togglePassword"
                             class="absolute inset-y-0 right-0 px-4 text-sm text-gray-400 hover:text-blue-600 focus:outline-none">
@@ -38,7 +38,7 @@
                 </div>
 
                 <input
-                    class="border mt-3 w-full rounded-lg m-1 px-3 py-2 text-white text-lg hover:scale-102 cursor-pointer"
+                    class="border mt-3 w-full bg-blue-700 rounded-lg m-1 px-3 py-2 text-white text-lg hover:bg-blue-800 cursor-pointer"
                     type="submit" value="Login">
             </form>
             <div class="mt-3">

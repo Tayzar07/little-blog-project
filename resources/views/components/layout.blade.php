@@ -32,6 +32,12 @@
             input.attr('type', type);
             $(this).text(type === 'password' ? 'Show' : 'Hide');
         });
+        $('#toggleCurrentPassword').on('click', function() {
+            const input = $('#current_password');
+            const type = input.attr('type') === 'password' ? 'text' : 'password';
+            input.attr('type', type);
+            $(this).text(type === 'password' ? 'Show' : 'Hide');
+        });
         $('#toggleConfirmPassword').on('click', function() {
             const input = $('#confirmPassword');
             const type = input.attr('type') === 'password' ? 'text' : 'password';
@@ -39,7 +45,7 @@
             $(this).text(type === 'password' ? 'Show' : 'Hide');
         });
 
-        // dropdown jquery
+        // navbar dropdown jquery
 
         $('#dropdownBtn').on('click', function(e) {
             e.stopPropagation(); // prevent closing when clicking the button
@@ -63,6 +69,26 @@
         // close alert
         $('#closeAlert').on('click', function() {
             $('#myAlert').fadeOut();
+        });
+
+        // delete popup modal jquery
+
+        $('.openDeleteModal').on('click', function() {
+            const slug = $(this).data('slug');
+            const name = $(this).data('name');
+
+            // Set form action dynamically
+            $('#deleteForm').attr('action', '/admin/blogs/' + slug +'/delete'); // Change URL as needed
+
+            // Optional: Update confirmation message
+            $('#deleteMessage').text(`Are you sure you want to delete "${name}"?`);
+
+            // Show modal
+            $('#deleteModal').removeClass('hidden flex').addClass('flex');
+        });
+
+        $('#cancelDelete').on('click', function() {
+            $('#deleteModal').addClass('hidden').removeClass('flex');
         });
     });
 </script>

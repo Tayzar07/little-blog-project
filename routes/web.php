@@ -24,6 +24,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get("/admin/dashboard",[AdminController::class,'dashboard'])->middleware('admin');
     Route::get("/admin/blog/create",[AdminController::class,'create'])->middleware('admin');
+    Route::post("/admin/blog/create",[AdminController::class,'store'])->middleware('admin');
+    Route::delete("/admin/blogs/{blog:slug}/delete",[AdminController::class,'destroy'])->middleware('admin')->name('blog.destroy');
+    Route::get("/admin/blogs/{blog:slug}/edit",[AdminController::class,'edit'])->middleware('admin');
+    Route::post("/admin/blogs/{blog:slug}/update",[AdminController::class,'update'])->middleware('admin');
+    Route::get("/admin/profile/edit",[AdminController::class,'editProfile'])->middleware('admin');
+    Route::post("/admin/profile/update",[AdminController::class,'updateProfile'])->middleware('admin');
 
 });
 

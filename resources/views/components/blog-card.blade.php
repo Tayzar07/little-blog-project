@@ -2,7 +2,7 @@
 <div>
     <div class="max-w-sm rounded-md overflow-hidden bg-white/10 shadow-lg border p-3">
         <img class="w-full rounded-md"
-            src="https://t4.ftcdn.net/jpg/03/16/45/77/360_F_316457746_jcEMNJy3LRoH8XwmQ4bozIOlCdji9uSi.jpg"
+            src="{{$blog->thumbnail ? "/storage/$blog->thumbnail" : '/storage/default-photos/default-thumbnail.png'}}"
             alt="Sunset in the mountains">
         <div class="px-6 py-4">
             <div class="font-bold text-white text-xl mb-2">{{ $blog->title }}</div>

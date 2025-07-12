@@ -10,7 +10,7 @@
 
     <!-- Category Dropdown Menu -->
     <div id="categoryDropdown"
-        class="hidden z-10 text-white absolute mt-2 md:w-[180px] w-[150px] bg-gray-400 backdrop-blur-sm border rounded shadow z-12">
+        class="hidden z-10 text-white absolute mt-2 md:w-[180px] w-[150px] bg-white/30 backdrop-blur-lg border rounded shadow z-12">
             <a href="/" class="block px-4 py-2 border border-transparent hover:border-white rounded m-1">All</a>
         @foreach ($categories as $category)
             <a href="/?category={{$category->slug}}{{request('username')?"&username=".request('username'):" "}}{{request('search')?"&search=".request('search'):" "}}" class="block px-4 py-2 border border-transparent hover:border-white rounded m-1">{{$category->name}}</a>
