@@ -25,7 +25,7 @@
                             </li>
                         @else
                             <li><a class="text-white border border-transparent hover:border-white p-4 py-2 rounded-md text-lg"
-                                    href="/profile">Profile</a>
+                                    href="/user/profile">Profile</a>
                             </li>
                         @endif
                         <li>
@@ -68,7 +68,7 @@
                                 <a href="/admin/dashboard"
                                     class="block px-4 py-2 border border-transparent hover:border-white rounded m-1">Dashdboard</a>
                             @else
-                                <a href="/profile"
+                                <a href="/user/profile"
                                     class="block px-4 py-2 border border-transparent hover:border-white rounded m-1">Profile</a>
                             @endif
                             <div class="block px-4 py-2 border border-transparent hover:border-white rounded m-1">

@@ -13,7 +13,8 @@
                 </li></a>
                 <a  href="/admin/blog/create"><li class="border m-2 py-2 text-white text-sm rounded-lg hover:bg-blue-700">Create</li></a>
                 <a  href="/admin/profile/edit"><li class="border m-2 py-2 text-white text-sm rounded-lg hover:bg-blue-700">Profile Edit</li></a>
-                <a  href=""><li class="border m-2 py-2 text-white text-sm rounded-lg hover:bg-blue-700">Users</li></a>
+                <a  href="/admin/adminlist"><li class="border m-2 py-2 text-white text-sm rounded-lg hover:bg-blue-700">Admins</li></a>
+                <a  href="/admin/userlist"><li class="border m-2 py-2 text-white text-sm rounded-lg hover:bg-blue-700">Users</li></a>
 
             </ul>
         </div>

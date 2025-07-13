@@ -23,80 +23,14 @@
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        // passwordhidden jquery
-        $('#togglePassword').on('click', function() {
-            const input = $('#password');
-            const type = input.attr('type') === 'password' ? 'text' : 'password';
-            input.attr('type', type);
-            $(this).text(type === 'password' ? 'Show' : 'Hide');
-        });
-        $('#toggleCurrentPassword').on('click', function() {
-            const input = $('#current_password');
-            const type = input.attr('type') === 'password' ? 'text' : 'password';
-            input.attr('type', type);
-            $(this).text(type === 'password' ? 'Show' : 'Hide');
-        });
-        $('#toggleConfirmPassword').on('click', function() {
-            const input = $('#confirmPassword');
-            const type = input.attr('type') === 'password' ? 'text' : 'password';
-            input.attr('type', type);
-            $(this).text(type === 'password' ? 'Show' : 'Hide');
-        });
 
-        // navbar dropdown jquery
-
-        $('#dropdownBtn').on('click', function(e) {
-            e.stopPropagation(); // prevent closing when clicking the button
-            $('#dropdownMenu').toggleClass('hidden');
-        });
-
-        // category dropdown
-
-        $('#categoryDropdownBtn').on('click', function(e) {
-            e.stopPropagation(); // prevent closing when clicking the button
-            $('#categoryDropdown').toggleClass('hidden');
-        });
-
-        // Close dropdown if clicking outside
-        $(document).on('click', function(e) {
-            if (!$(e.target).closest('#dropdownMenu').length) {
-                $('#dropdownMenu').addClass('hidden');
-            }
-        });
-
-        // close alert
-        $('#closeAlert').on('click', function() {
-            $('#myAlert').fadeOut();
-        });
-
-        // delete popup modal jquery
-
-        $('.openDeleteModal').on('click', function() {
-            const slug = $(this).data('slug');
-            const name = $(this).data('name');
-
-            // Set form action dynamically
-            $('#deleteForm').attr('action', '/admin/blogs/' + slug +'/delete'); // Change URL as needed
-
-            // Optional: Update confirmation message
-            $('#deleteMessage').text(`Are you sure you want to delete "${name}"?`);
-
-            // Show modal
-            $('#deleteModal').removeClass('hidden flex').addClass('flex');
-        });
-
-        $('#cancelDelete').on('click', function() {
-            $('#deleteModal').addClass('hidden').removeClass('flex');
-        });
-    });
-</script>
 
 <!-- CKEditor 4 Full -->
 <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
 <script>
     CKEDITOR.replace('editor');
 </script>
+
+<script src="/js/index.js"></script>
 
 </html>

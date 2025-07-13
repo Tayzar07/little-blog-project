@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\User;
 use App\Models\Category;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Comment;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -110,5 +112,41 @@ class AdminController extends Controller
 
         return back()->with('success','profile update success..');
 
+    }
+
+    // manage admins list
+
+    public function showadmins(){
+        $admins = User::where('isAdmin',true)
+              ->where('id', '!=', auth()->user()->id)
+              ->get();
+        return view('admin.adminlist',['adminlist'=>$admins]);
+    }
+
+    public function changeToUser(User $user){
+        $user->update(['isAdmin'=>false]);
+        return back()->with('success','Change to user success..');
+    }
+
+    // manage user list
+    public function showusers(){
+        $users = User::where('isAdmin',false)
+              ->paginate(10);
+        return view('admin.userlist',['userlist'=>$users]);
+    }
+
+    public function changeToAdmin(User $user){
+        $user->update(['isAdmin'=>true]);
+        return redirect('/admin/adminlist')->with('success','Change to admin success..');
+    }
+
+    public function destoryUser(User $user){
+        $user->delete();
+        return back()->with('success','Delete user success..');
+    }
+
+    public function destoryComment(Comment $comment){
+        $comment->delete();
+        return back()->with('success','Delete comment success..');
     }
 }

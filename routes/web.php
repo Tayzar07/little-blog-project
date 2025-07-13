@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/user/profile', [RegisteredUserController::class, 'userProfile']);
+    Route::post('/user/profile/update', [RegisteredUserController::class, 'updateProfile']);
+
+
 
     // admin routes
 
@@ -30,6 +35,16 @@ Route::middleware('auth')->group(function () {
     Route::post("/admin/blogs/{blog:slug}/update",[AdminController::class,'update'])->middleware('admin');
     Route::get("/admin/profile/edit",[AdminController::class,'editProfile'])->middleware('admin');
     Route::post("/admin/profile/update",[AdminController::class,'updateProfile'])->middleware('admin');
+    Route::get("/admin/adminlist",[AdminController::class,'showadmins'])->middleware('admin');
+    Route::get("/admin/userlist",[AdminController::class,'showusers'])->middleware('admin');
+    Route::get("/admin/adminlist/{user:username}/changeToUser",[AdminController::class,'changeToUser'])->middleware('admin');
+    Route::get("/admin/adminlist/{user:username}/changeToAdmin",[AdminController::class,'changeToAdmin'])->middleware('admin');
+    Route::delete("/admin/userlist/{user:username}/delete",[AdminController::class,'destoryUser'])->middleware('admin')->name('user.destory');
+    Route::delete("/admin/comments/{comment}/delete",[AdminController::class,'destoryComment'])->middleware('admin')->name('comment.destory');
+
+
+
+
 
 });
 

@@ -20,7 +20,7 @@
                             class="border w-full rounded-lg m-1 px-3 py-2 bg-transparent text-white border-white placeholder-gray-300"
                             placeholder="password..." type="password">
                         <button type="button" id="togglePassword"
-                            class="absolute inset-y-0 right-0 px-4 text-sm text-gray-400 hover:text-blue-600 focus:outline-none">
+                            class="absolute inset-y-0 right-0 px-4 text-sm text-white hover:text-blue-600 focus:outline-none">
                             Show
                         </button>
                     </div>
