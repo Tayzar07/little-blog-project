@@ -18,4 +18,6 @@ export default {
     },
 
     plugins: [forms],
+
+    safelist:['border-white','bg-blue-700','bg-gradient-to-r from-blue-600 to-red-400']
 };

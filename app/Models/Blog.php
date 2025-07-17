@@ -10,6 +10,8 @@ class Blog extends Model
     /** @use HasFactory<\Database\Factories\BlogFactory> */
     use HasFactory;
 
+    protected $with = ['category','author'];
+
     protected $fillable = [
         'title',
         'slug',

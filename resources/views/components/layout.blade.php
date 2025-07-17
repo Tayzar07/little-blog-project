@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-gradient-to-r from-blue-600 to-red-400">
 
 <head>
     <meta charset="UTF-8">
@@ -13,6 +13,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{-- tailwind link --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- css link --}}
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 
 <body class="bg-gradient-to-r from-blue-600 to-red-400">

@@ -15,15 +15,18 @@
                         <p class="text-gray-300 text-sm">{{ $comment->created_at->diffForHumans() }}</p>
                     </div>
                 </div>
-                @if (auth()->user()->isAdmin)
-                    <div>
-                        {{-- delete popup modal button --}}
-                        <button class="openDeleteModal2 border text-white text-sm px-2 text-center p-1 bg-red-600 rounded-md"
-                            data-id="{{ $comment->id }}" data-body="{{ $comment->body }}">
-                            Delete
-                        </button>
-                    </div>
-                @endif
+                @auth
+                    @if (auth()->user()->isAdmin)
+                        <div>
+                            {{-- delete popup modal button --}}
+                            <button
+                                class="openDeleteModal2 border text-white text-sm px-2 text-center p-1 bg-red-600 rounded-md"
+                                data-id="{{ $comment->id }}" data-body="{{ $comment->body }}">
+                                Delete
+                            </button>
+                        </div>
+                    @endif
+                @endauth
             </div>
             <div class="mt-3 text-white">{{ $comment->body }}</div>
         </div>

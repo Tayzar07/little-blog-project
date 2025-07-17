@@ -33,6 +33,15 @@ Route::middleware('auth')->group(function () {
     Route::delete("/admin/blogs/{blog:slug}/delete",[AdminController::class,'destroy'])->middleware('admin')->name('blog.destroy');
     Route::get("/admin/blogs/{blog:slug}/edit",[AdminController::class,'edit'])->middleware('admin');
     Route::post("/admin/blogs/{blog:slug}/update",[AdminController::class,'update'])->middleware('admin');
+
+    Route::get("/admin/categorylist",[AdminController::class,'categorylist'])->middleware('admin');
+    Route::get("/admin/category/create",[AdminController::class,'categoryCreate'])->middleware('admin');
+    Route::delete("/admin/categories/{category:slug}/destroy",[AdminController::class,'categoryDestroy'])->middleware('admin')->name('category.destroy');
+    Route::post("admin/category/create",[AdminController::class,'categoryStore'])->middleware('admin');
+    Route::get("admin/categories/{category:slug}/edit",[AdminController::class,'categoryEdit'])->middleware('admin');
+    Route::post("admin/categories/{category:slug}/update",[AdminController::class,'categoryUpdate'])->middleware('admin');
+
+
     Route::get("/admin/profile/edit",[AdminController::class,'editProfile'])->middleware('admin');
     Route::post("/admin/profile/update",[AdminController::class,'updateProfile'])->middleware('admin');
     Route::get("/admin/adminlist",[AdminController::class,'showadmins'])->middleware('admin');

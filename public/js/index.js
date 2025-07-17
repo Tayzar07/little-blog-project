@@ -109,4 +109,26 @@ $(document).ready(function () {
     $("#cancelDelete2").on("click", function () {
         $("#deleteModal2").addClass("hidden").removeClass("flex");
     });
+
+    // categorydelete
+
+    $(".openDeleteModal3").on("click", function () {
+        const slug = $(this).data("slug");
+        const name = $(this).data("name");
+
+        // Set form action dynamically
+        $("#deleteForm3").attr("action", "/admin/categories/" + slug + "/destroy"); // Change URL as needed
+
+        // Optional: Update confirmation message
+        $("#deleteMessage3").text(
+            `Are you sure you want to delete this category "${name}" ? This action will delete all blogs associated with this category .`
+        );
+
+        // Show modal
+        $("#deleteModal3").removeClass("hidden flex").addClass("flex");
+    });
+
+    $("#cancelDelete3").on("click", function () {
+        $("#deleteModal3").addClass("hidden").removeClass("flex");
+    });
 });

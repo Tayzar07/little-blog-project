@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\User;
-use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Category;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
 
@@ -148,5 +148,44 @@ class AdminController extends Controller
     public function destoryComment(Comment $comment){
         $comment->delete();
         return back()->with('success','Delete comment success..');
+    }
+
+    // category create
+
+    public function categorylist(){
+        return view('admin.categorylist',['categories'=>Category::latest()->paginate(5)]);
+    }
+
+    public function categoryCreate(){
+        return view('admin.categoryCreate');
+    }
+
+    public function categoryDestroy(Category $category){
+        $category->deleteOrFail();
+        return back()->with('success','Category delete success..');
+    }
+
+    public function categoryStore(){
+        $formdata = request()->validate([
+            'name'=>['required',Rule::unique('categories','name')],
+            'slug' => ['required',Rule::unique('categories','slug')]
+        ]);
+
+        Category::create($formdata);
+         return redirect('/admin/categorylist')->with('success','Category create success..');
+    }
+
+    public function categoryEdit(Category $category){
+        return view('admin.categoryEdit',['category'=>$category]);
+    }
+
+    public function categoryUpdate(Category $category){
+        $formdata = request()->validate([
+            'name'=>['required',Rule::unique('categories','name')->ignore($category->id)],
+            'slug' => ['required',Rule::unique('categories','slug')->ignore($category->id)]
+        ]);
+
+        $category->update($formdata);
+        return redirect('/admin/categorylist')->with('success','Category update success..');
     }
 }

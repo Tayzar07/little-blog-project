@@ -1,9 +1,9 @@
 <header class="sticky top-2 z-10">
-    <nav class="m-2 backdrop-blur-sm bg-white/20 py-3 rounded-md sm:px-[70px] px-[30px]">
-        <div class="flex justify-between items-center ">
+    <nav class="m-2 backdrop-blur-sm  bg-white/20 py-3 rounded-md sm:px-[70px] px-[30px]">
+        <div class="flex justify-between items-center">
             <h1 class="sm:text-3xl text-xl rounded-md p-2 px-5 text-white border bg-blue-700"><a
                     href="/">TechNest</a></h1>
-            <div class="flex items-center">
+            <div class="flex items-center bg-inherit">
                 @auth
                     <div class="hidden sm:block">
                         @if (auth()->user()->avatar)
@@ -15,16 +15,16 @@
                         @endif
                     </div>
                 @endauth
-                <ul class="md:flex mx-3 items-center hidden space-x-3">
-                    <li><a class="text-white border border-transparent hover:border-white p-4 py-2 rounded-md text-lg"
+                <ul class="md:flex mx-3 items-baseline hidden space-x-3">
+                    <li><a class="{{request()->is('/')?'border-white':'border-transparent'}} text-white border border-transparent hover:border-white p-4 py-2 rounded-md text-lg"
                             href="/">Home</a></li>
                     @auth
                         @if (auth()->user()->isAdmin)
-                            <li><a class="text-white border border-transparent hover:border-white p-4 py-2 rounded-md text-lg"
+                            <li><a class=" {{request()->is('admin/dashboard')?'border-white':'border-transparent'}} text-white border border-transparent hover:border-white p-4 py-2 rounded-md text-lg"
                                     href="/admin/dashboard">Dashboard</a>
                             </li>
                         @else
-                            <li><a class="text-white border border-transparent hover:border-white p-4 py-2 rounded-md text-lg"
+                            <li><a class=" {{request()->is('user/profile')?'border-white':'border-transparent'}} text-white border border-transparent hover:border-white p-4 py-2 rounded-md text-lg"
                                     href="/user/profile">Profile</a>
                             </li>
                         @endif
@@ -38,10 +38,10 @@
                             </div>
                         </li>
                     @else
-                        <li><a class="text-white border border-transparent hover:border-white p-4 py-2 rounded-md text-lg"
+                        <li><a class=" {{request()->is('register')?'border-white':'border-transparent'}} text-white border border-transparent hover:border-white p-4 py-2 rounded-md text-lg"
                                 href="/register">Register</a>
                         </li>
-                        <li><a class="text-white border border-transparent hover:border-white p-4 py-2 rounded-md text-lg"
+                        <li><a class=" {{request()->is('login')?'border-white':'border-transparent'}} text-white border border-transparent hover:border-white p-4 py-2 rounded-md text-lg"
                                 href="/login">Login</a></li>
                     @endauth
 

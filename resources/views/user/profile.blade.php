@@ -78,7 +78,7 @@
             </form>
         </div>
 
-        <div class=" w-[90%] mx-auto rounded-lg p-5 pe-7 w-full bg-white/10 backdrop-blur-sm my-[20px]">
+        <div class=" w-[90%] mx-auto rounded-lg p-5 pe-7 bg-white/10 backdrop-blur-sm my-[20px]">
             <h1 class="text-white mb-5 md:text-2xl text-lg ">Change Password</h1>
             <form action="{{ route('password.update') }}" class="flex flex-col gap-3" method="post"
                 enctype="multipart/form-data">
