@@ -14,7 +14,7 @@
                 src="{{$blog->thumbnail ? "/storage/$blog->thumbnail" : '/storage/default-photos/default-thumbnail.png'}}"
                 alt="Sunset in the mountains">
             <div class="px-6 py-4">
-                <div class="font-bold text-white text-3xl mb-2 text-center mb-5">{{ $blog->title }}</div>
+                <div class="font-bold text-white text-3xl text-center mb-5">{{ $blog->title }}</div>
                 <div class="text-white">
                     {!! $blog->body !!}
                 </div>
